@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  coordinator:
+    build: .
+    container_name: coordinator
+    command: python coordinator.py
+    volumes:
+      - ./txt:/app/txt
+      - .:/app
+    depends_on:
+      - docker-worker1
+      - docker-worker2
+      - docker-worker3
+      - docker-worker4
+      - docker-worker5
+      - docker-worker6
+      - docker-worker7
+      - docker-worker8
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+
+  docker-worker1:
+    build: .
+    container_name: docker-worker1
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  docker-worker2:
+    build: .
+    container_name: docker-worker2
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+
+  docker-worker3:
+    build: .
+    container_name: docker-worker3
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  docker-worker4:
+    build: .
+    container_name: docker-worker4
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  docker-worker5:
+    build: .
+    container_name: docker-worker5
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  docker-worker6:
+    build: .
+    container_name: docker-worker6
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+  docker-worker7:
+    build: .
+    container_name: docker-worker7
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  docker-worker8:
+    build: .
+    container_name: docker-worker8
+    command: python worker.py
+    networks:
+      - mapreduce-net
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  mapreduce-net:
+    driver: bridge
