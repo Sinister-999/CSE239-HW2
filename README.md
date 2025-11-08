@@ -2,8 +2,8 @@
 
 ## Setup
 1. Clone the repository:
-   git clone https://github.com/<yourusername>/mapreduce-rpyc.git
-   cd mapreduce-rpyc
+   git clone https://github.com/Sinister-999/CSE239-HW2
+   cd CSE239-HW2
 
 2. Build the Docker images:
    docker-compose build
@@ -12,7 +12,7 @@
    docker-compose up
 
 The coordinator will:
-- Download the dataset (enwik8.zip)
+- Download the dataset (enwik9.zip)
 - Split the file into chunks
 - Distribute work among workers
 - Aggregate results and print the 20 most frequent words
